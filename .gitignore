@@ -1,3 +1,6 @@
+# Do not publish private scripts to git!
+*.sql
+
 # Logs
 logs
 *.log

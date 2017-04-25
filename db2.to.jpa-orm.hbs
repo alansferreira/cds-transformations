@@ -1,0 +1,13 @@
+@Entity
+@Table(name = "{{name}}", schema = "{{schema}}")
+public class {{upperCamelCase name}}{
+    {{#each columns}}
+	{{#if isAutoIncrement}}
+    @Id
+	@GeneratedValue
+    {{/if}}
+	@Column(name = "{{name}}")
+	private {{toJavaType type}} {{lowerCamelCase name}};
+
+    {{/each}}
+}
