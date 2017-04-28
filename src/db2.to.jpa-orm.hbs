@@ -1,0 +1,14 @@
+@Entity
+@Table(name = "{{name}}", schema = "{{schema}}")
+public class {{upperCamelCase name}}{
+    {{#each columns}}
+	{{#if isAutoIncrement}}
+    @Id
+	@GeneratedValue
+    {{/if}}
+	@Column(name = "{{name}}")
+    {{#if isTimestamp}}@Temporal(TemporalType.TIMESTAMP){{/if}}{{#if isDate}}@Temporal(TemporalType.DATE){{/if}}{{#if isTime}}@Temporal(TemporalType.TIME){{/if}}
+	private {{toJavaType type}} {{lowerCamelCase name}};
+
+    {{/each}}
+}
